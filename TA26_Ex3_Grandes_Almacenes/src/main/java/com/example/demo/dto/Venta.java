@@ -1,5 +1,7 @@
 package com.example.demo.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,14 +19,17 @@ public class Venta {
 	private Integer id;
 	
 	@ManyToOne
+	@JsonIgnoreProperties("maquinas")
     @JoinColumn(name = "cod_producto")
     Producto producto;
  
     @ManyToOne
+    @JsonIgnoreProperties("maquinas")
     @JoinColumn(name = "cod_cajero")
     Cajero cajero;
     
     @ManyToOne
+    @JsonIgnoreProperties("maquinas")
     @JoinColumn(name = "cod_maquina")
     MaquinaRegistradora maquina_Registradora;
     
